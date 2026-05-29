@@ -68,7 +68,8 @@ module.exports = {
 │ ${prefix}ping
 
 🎮 FUN (IQC PLAY)
-│ ${prefix}iqc play
+│ ${prefix}iqc 
+│ ${prefix}play judul lagu
 
 🎨 MAKER
 │ ${prefix}fakeff nickname
