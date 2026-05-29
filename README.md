@@ -24,7 +24,7 @@ Bot WhatsApp multifunction berbasis Baileys dengan sistem plugin modular, panel,
 pkg update && pkg upgrade
 pkg install git nodejs ffmpeg imagemagick -y
 
-git clone https://github.com/ReyZ4YouXGod/AkiraBot.git
+git clone https://github.com/ReyZ4YouXGod/AkiraBotNew.git
 cd AkiraBot
 
 npm install
