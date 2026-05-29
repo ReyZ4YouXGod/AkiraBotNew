@@ -51,7 +51,7 @@ module.exports = {
 
 🤖 NameBot : AkiraBot
 👑 Creator : ReyCloudDev
-⚡ Version : 1.0 Beta Tes
+⚡ Version : 2.0 Rilis
 
 🕒 Jam      : ${jam}
 📅 Tanggal  : ${tanggal}
