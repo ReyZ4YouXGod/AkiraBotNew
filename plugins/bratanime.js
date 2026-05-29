@@ -1,55 +1,72 @@
-const axios = require("axios")
+const axios = require("axios");
+
 const {
- Sticker,
- StickerTypes
-} = require("wa-sticker-formatter")
+  Sticker,
+  StickerTypes
+} = require("wa-sticker-formatter");
 
 module.exports = {
- command: ["bratanime", "bratani"],
+  command: ["bratanime", "bratani"],
 
- async run(sock, m, { text }) {
+  run: async (sock, m, { text }) => {
 
- try {
+    try {
 
- if (!text) {
- return m.reply(
- "âŒ kasih teks jir\ncontoh: .bratanime hello anime"
- )
- }
+      if (!text) {
+        return sock.sendMessage(m.chat, {
+          text: "❌ kasih teks jir\ncontoh: .bratanime hello anime"
+        }, { quoted: m });
+      }
 
- m.reply("â³ bikin stiker anime...")
+      await sock.sendMessage(m.chat, {
+        text: "⏳ bikin stiker anime..."
+      }, { quoted: m });
 
- const url =
- `https://api.nexray.eu.cc/maker/bratanime?text=${encodeURIComponent(text)}`
+      const url =
+        `https://api.nexray.eu.cc/maker/bratanime?text=${encodeURIComponent(text)}`;
 
- const res = await axios.get(url, {
- responseType: "arraybuffer"
- })
+      const res = await axios.get(url, {
+        responseType: "arraybuffer",
+        timeout: 15000
+      });
 
- const buffer = Buffer.from(res.data)
+      if (!res.data) {
+        return sock.sendMessage(m.chat, {
+          text: "❌ gagal ambil gambar dari API"
+        }, { quoted: m });
+      }
 
- const sticker = new Sticker(buffer, {
- pack: "AkiraAI Pack", // packname
- author: "ReyCloudDev", // author
- type: StickerTypes.FULL,
- categories: ["anime", "brat"],
- quality: 80
- })
+      const buffer = Buffer.from(res.data);
 
- const output = await sticker.toBuffer()
+      const sticker = new Sticker(buffer, {
+        pack: global.packname,
+        author: global.author,
+        type: StickerTypes.FULL,
+        categories: ["anime"],
+        quality: 80
+      });
 
- await sock.sendMessage(
- m.chat,
- {
- sticker: output
- },
- { quoted: m }
- )
+      const output = await sticker.toBuffer();
 
- } catch (err) {
+      await sock.sendMessage(
+        m.chat,
+        {
+          sticker: output
+        },
+        { quoted: m }
+      );
 
- console.log(err)
- m.reply("âŒ gagal generate bratanime")
- }
- }
-}
+    } catch (err) {
+
+      console.log(
+        "BRATANIME ERROR:",
+        err.response?.data || err.message
+      );
+
+      await sock.sendMessage(m.chat, {
+        text: "❌ gagal generate stiker bratanime"
+      }, { quoted: m });
+
+    }
+  }
+};
