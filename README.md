@@ -19,45 +19,117 @@ Bot WhatsApp multifunction berbasis Baileys dengan sistem plugin modular, panel,
 
 ---
 
-📦 Installation
+📦 INSTALLATION TERMUX
 
-pkg update && pkg upgrade
-pkg install git nodejs ffmpeg imagemagick -y
+1. Update Package
+
+pkg update && pkg upgrade -y
+
+---
+
+2. Install Dependencies
+
+pkg install git nodejs ffmpeg imagemagick yarn webp -y
+
+---
+
+3. Clone Repository
 
 git clone https://github.com/ReyZ4YouXGod/AkiraBotNew.git
-cd AkiraBot
+
+---
+
+4. Masuk Folder Bot
+
+cd AkiraBotNew
+
+---
+
+5. Install Module
 
 npm install
+
+Kalau error:
+
+npm install --force
+
+atau:
+
+yarn install
+
+---
+
+6. Jalankan Bot
+
 npm start
 
----
+atau:
 
-⚙️ Configuration
-
-Edit bagian config sesuai kebutuhan kamu.
-
-Contoh:
-
-owner: "6281260512743"
+node index.js
 
 ---
 
-📁 Project Structure
+⚠️ ERROR FIX
+
+Module Tidak Ditemukan
+
+Install manual:
+
+npm install axios
+npm install @whiskeysockets/baileys
+npm install qrcode-terminal
+
+---
+
+Sticker Error
+
+pkg install webp -y
+
+---
+
+🔥 AUTO RUN TERMUX (PM2)
+
+Install PM2
+
+npm install -g pm2
+
+Jalankan Bot
+
+pm2 start index.js
+
+Cek Status
+
+pm2 list
+
+Save Session
+
+pm2 save
+
+---
+
+🔄 UPDATE BOT
+
+git pull
+npm install
+
+---
+
+📁 PROJECT STRUCTURE
 
 AkiraBot/
-├── command/
-├── database/
-├── media/
-├── system/
+├── data/
 ├── lib/
+├── media/
+├── plugins/
+├── system/
+├── README.md
+├── config.js
 ├── index.js
 └── package.json
 
 ---
 
-🛒 Product System
-
-Fitur jual produk digital otomatis.
+🛒 PRODUCT SYSTEM
 
 Add Product
 
@@ -73,7 +145,7 @@ Buy Product
 
 ---
 
-📡 Contact
+📡 CONTACT
 
 - WhatsApp : 6281260512743
 - Telegram : t.me/ReyCloudDev
@@ -88,8 +160,12 @@ Developed by ReyCloudDev
 
 ---
 
-⚠️ Warning
+⚠️ WARNING
 
 Dilarang menjual ulang script tanpa izin developer.
 
 ---
+
+⭐ SUPPORT
+
+Kasih star repo GitHub biar repo lu gak sepi kayak panel expired 😏
