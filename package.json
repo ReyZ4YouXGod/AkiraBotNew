@@ -1,6 +1,6 @@
 {
-  "name": "venom-bot-plugins",
-  "version": "1.0.0",
+  "name": "AkiraBot",
+  "version": "1.1.0",
   "description": "Base WhatsApp Bot Modular Plugins System",
   "main": "index.js",
 
@@ -19,7 +19,7 @@
     "chalk": "^4.1.2",
     "pino": "^9.0.0",
     "node-cache": "^5.1.2",
-    "wa-sticker-formatter": "latest",
+    "wa-sticker-formatter": "4.4.4",
     "child_process":"^1.0.2",
     "crypto": "latest",  
     "moment-timezone": "^0.5.45",
